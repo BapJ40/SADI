@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    /* Cositas basicas */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Mi Colores */
+    --AzulRey: #0454A2;
+    --AzulReyOscuro: #074A85;
+    --AzulCelesteClaro: #DDE9F3;
+    --AzulCelestico: #4D82BE;
+    --Amarillo: #FDD567;
+    --AmarilloClaro: #FCDD5A;
+    /* Mi Tipografía */
+    --txtTitulo: "Chivo";
+    --txtSubTitulos: "Kanit";
+    --txtNumerosParraffos: "Martian Mono";
+
+    /* Scroll */
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--AzulRey);
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--AzulCelestico);
+    color: white;
+}
+
+.marca{
+    font-family: var(--txtTitulo);
+    font-size: 2rem;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+.titulo-header{
+    font-family: var(--txtTitulo);
+    font-size:  3rem;
+}
+
+.opciones{
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    margin-right:  10px;
+    
+}
+
+.titulo-fiiltro{
+    font-family: var(--txtSubTitulos);
+    font-size: 2rem;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#filtro{
+    font-family: var(--txtSubTitulos);
+    font-size:  20px;
+    border-radius:  10px;
+    text-align: center;
+    border: none;
+    background-color: var(--AzulRey);
+    color:  white;
+}
+
+#login{
+    font-size: 40px;
+    margin: 0 20px;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--AzulRey);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.login{
+    text-decoration: none;
+    color: white;
+}
+
+#logout{
+    font-size: 40px;
+    margin: 0 20px;
+    user-select: none;
+    cursor: pointer;
+    background-color: red;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.logout{
+    text-decoration: none;
+    color: white;
+}
+
+.botones{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.carnets{
+    display:  grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap:  10px;
+    grid-row-gap:  10px;
+    justify-items: center;
+    align-items: center; 
+}
+
+.carnet{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--AzulRey);
+    width:  300px;
+    border-radius:  10px;
+    color:  white;
+}
+
+.carnet-img{
+    padding: 10px;
+    object-fit: contain;
+    border-radius:  10px;
+    cursor: pointer;
+}
+
+.carnet-img img{
+    width:  100%;
+}
+
+.info{
+    font-family: var(--txtNumerosParraffos);
+    font-size:  1.5rem;
+    padding:  5px 20px;
+    text-align: center;
+    font-weight: bold;
+    background-color: var(--AzulCelestico) ;    
+    border-radius: 25px;
+}
+
+.qrs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.form-select{
+    font-family: var(--txtTitulo);
+    font-size:  20px;
+    border-radius:  10px;
+    text-align: center;
+    border: none;
+    background-color: var(--AzulCelestico);
+    color:  white;
+}
+
+.novisible{
+    display: none;
+}
