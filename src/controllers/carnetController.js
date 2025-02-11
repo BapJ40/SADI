@@ -7,7 +7,7 @@ exports.getAllCarnets = async (req, res) => {
     res.json(carnets);
   } catch (err) {
     console.error('Error al obtener carnets:', err.message);
-    res.status(500).send('Error al obtener carnets');
+    res.status(500).send('Error al obtener carnets' + err.message);
   }
 };
 

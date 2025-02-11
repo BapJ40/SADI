@@ -36,13 +36,13 @@ header{
     align-items: center;
     background-color: var(--AzulCelestico);
     color: white;
+    width: 100%;
 }
 
 .marca{
     font-family: var(--txtTitulo);
     font-size: 2rem;
-    padding: 10px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .titulo-header{
@@ -115,10 +115,9 @@ header{
 
 .carnets{
     display:  grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap:  10px;
-    grid-row-gap:  10px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+    grid-column-gap:  20px;
+    grid-row-gap:  20px;
     justify-items: center;
     align-items: center; 
 }
@@ -171,6 +170,156 @@ header{
     border: none;
     background-color: var(--AzulCelestico);
     color:  white;
+}
+
+.fancybox__caption{
+    font-family: var(--txtSubTitulos);
+    font-size:  20px;
+    text-align: center;
+    color: white;
+}
+
+/* MEDIA */
+
+@media (max-width: 645px){
+    .opciones{
+        margin-left: 50px;
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .titulo-header{
+        font-size:  1.5rem;
+    }
+
+    .marca{
+        font-size: 1.5rem;
+    }
+
+    .opciones{
+        margin-right:  5px;
+        margin-left: 10px;
+    }
+
+    .titulo-fiiltro{
+        font-size: 1rem;
+    }
+
+    #filtro{
+        font-size:  15px;
+    }
+
+    #login{
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+    #logout{
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+    .carnets {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas más pequeñas */
+        gap: 8px; /* Menor espacio entre elementos */
+    }
+
+    .carnet{
+        width:  150px;
+    }
+
+    .info{
+        font-size:  1rem;
+    }
+}
+
+
+/* SISTEMA LOGIN Y REGISTER */
+
+.sistemaLoginRegister{
+    font-family: sans-serif;
+    background-color: #19547b; /* Dark blue background from image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.login-container, .register-container {
+    background-color: #428bca; /* Blue form background from image */
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+  color: white;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: white;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: calc(100% - 20px); /* Adjust width for padding */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box; /* To include padding in width */
+}
+
+button[type="submit"] {
+  background-color: #d9edf7; /* Light blue button from image */
+  color: #333; /* Dark text for button */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #c0e0f0; /* Slightly darker hover color */
+}
+
+.links {
+  margin-top: 15px;
+  color: white;
+}
+
+.links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.volver-link {
+  margin-top: 20px;
+  color: white;
+  display: block;
+}
+
+.volver-link a {
+  color: white;
+  text-decoration: none;
+}
+
+.volver-link a:hover {
+  text-decoration: underline;
 }
 
 .novisible{

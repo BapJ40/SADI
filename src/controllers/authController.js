@@ -50,5 +50,5 @@ exports.register = async (req, res) => {
 // Logout
 exports.logout = (req, res) => {
   res.clearCookie('token'); // Eliminar la cookie del token
-  res.redirect('/'); // Redirigir al login
+  res.redirect('/'); // Redirigir al inicio
 };

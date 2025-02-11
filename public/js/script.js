@@ -123,50 +123,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 });
 
-
-// async function mostrarTrabajador(id) {
-//     try {
-//         const response = await fetch(`/trabajadores/${id}`);
-//         const trabajador = await response.json();
-
-//         // Procesar la fecha de nacimiento al formato dd/mm/yyyy
-//         const fechaNacimiento = new Date(trabajador.fecha_de_nacimiento);
-//         const fechaFormateada = fechaNacimiento.toLocaleDateString('es-ES', {
-//             year: 'numeric',
-//             month: '2-digit',
-//             day: '2-digit'
-//         });
-
-//         // Asignar valores a los elementos del modal
-//         document.getElementById('modal-image').src = trabajador.foto;
-//         document.getElementById('modal-nombre').innerText = `${trabajador.nombres} ${trabajador.apellidos}`;
-//         document.getElementById('modal-cedula').innerText = trabajador.cedula;
-//         document.getElementById('modal-genero').innerText = trabajador.genero;
-//         document.getElementById('modal-numero-carnet').innerText = trabajador.numero_carnet;
-//         document.getElementById('modal-edad').innerText = trabajador.edad;
-//         document.getElementById('modal-fecha-nacimiento').innerText = fechaFormateada;
-//         document.getElementById('modal-estado').innerText = trabajador.carnet_estado;
-//         document.getElementById('modal-cargo').innerText = trabajador.cargo;
-//         document.getElementById('modal-departamento').innerText = trabajador.departamento;
-//         document.getElementById('modal-sede').innerText = trabajador.sede;
-//         document.getElementById('modal-telefono').innerText = trabajador.telefono;
-//         document.getElementById('modal-correo').innerText = trabajador.correo;
-
-//         // Configurar el enlace para ver el carnet
-//         const verCarnetLink = document.getElementById('ver-carnet-link');
-//         verCarnetLink.href = trabajador.carnet_img;
-//         verCarnetLink.target = '_blank';
-
-//         // Mostrar el modal utilizando Bootstrap
-//         const modalTrabajador = new bootstrap.Modal(document.getElementById('modal-trabajador'));
-//         modalTrabajador.show();
-
-//     } catch (err) {
-//         console.error('Error al cargar el trabajador:', err.message);
-//     }
-// }
-
-
 // QR
 // DESCARGAR QRS
 // const qrs = [

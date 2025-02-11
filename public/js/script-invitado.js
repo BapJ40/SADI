@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="carnet ${carnet.estado}">
                     <div class="carnet-img">
                         <div class="galeria">
-                            <a href="${carnet.img}" data-lightbox="carnets" data-title="${carnet.estado}" data-id="${carnet.id}">
+                            <a href="${carnet.img}" data-fancybox="Carnet" data-caption="nº ${carnet.id}. Este empleado esta: ${carnet.estado}">
                                 <img src="${carnet.img}" alt="carnet">
                             </a>
                         </div>
@@ -57,6 +57,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al cargar carnets:', err.message);
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    Fancybox.bind('[data-fancybox]', {
+    });
+});
+
 
 // Filtro
 
