@@ -17,10 +17,10 @@ const generateToken = (user) => {
 
 // Login
 exports.login = async (req, res) => {
-  const { email, password } = req.body;
+  const { username, password } = req.body;
 
   try {
-    const user = await User.findByEmail(email);
+    const user = await User.findByUsername(username);
     if (user && (await bcrypt.compare(password, user.password))) {
       // Generar el token JWT
       const token = generateToken(user);
