@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="carnet ${carnet.estado}">
                     <div class="carnet-img">
                         <div class="galeria">
-                            <a href="${carnet.img}" data-fancybox="Carnet" data-caption="nº ${carnet.id}. Este empleado esta: ${carnet.estado}">
+                            <a href="${carnet.img}" data-fancybox="Carnet" data-caption="Este empleado esta: ${carnet.estado}">
                                 <img src="${carnet.img}" alt="carnet">
                             </a>
                         </div>
