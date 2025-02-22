@@ -1,33 +1,3 @@
-// CODIGO ORIGINAL
-// document.addEventListener('DOMContentLoaded', async () => {
-//     const carnetsDiv = document.querySelector('.carnets');
-
-//     try {
-//         const response = await fetch('/carnets-info');
-//         const carnets = await response.json();
-
-//         carnets.forEach(carnet => {
-//             const carnetElement = document.createRange().createContextualFragment(`
-//                 <div class="carnet ${carnet.estado}" onclick="mostrarCarnet(${carnet.id})"> // aqui quiero que se muestre el carnet
-//                     <div class="carnet-img">
-//                         <div class="galeria">
-//                             <img src="${carnet.img}" alt="carnet">
-//                         </div>
-//                     </div>
-//                     <div class="carnet-info">
-//                         <p class="info">${carnet.estado}</p>
-//                     </div>
-//                 </div>
-//             `);
-        
-//             carnetsDiv.appendChild(carnetElement);
-//         });
-        
-//     } catch (err) {
-//         console.error('Error al cargar carnets:', err.message);
-//     }
-// });
-
 document.addEventListener('DOMContentLoaded', async () => {
     const carnetsDiv = document.querySelector('.carnets');
 

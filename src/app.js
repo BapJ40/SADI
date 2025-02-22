@@ -4,14 +4,14 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const authRoutes = require('./routes/authRoutes');
 const path = require('path');
+const multer = require('multer');
 const carnetRoutes = require('./routes/carnetRoutes'); // Importa las rutas de carnets
 const trabajadoresRoutes = require('./routes/trabajadorRoutes');
+const planificadorRoutes = require('./routes/planificadorRoutes');
 
 dotenv.config();
 
 const app = express();
-
-
 // Configuraciones
 
 // Configura el directorio de las vistas
@@ -34,10 +34,10 @@ app.get('/', (req, res) => {
 
 // Rutas
 app.use(authRoutes);
-// Registrar las rutas de carnets
 app.use('/carnets-info', carnetRoutes);
 app.use('/trabajadores', trabajadoresRoutes);
+app.use('/planificaciones-info', planificadorRoutes);
 
 // Servidor
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 app.listen(PORT, () => console.log(`Servidor en http://localhost:${PORT}`));

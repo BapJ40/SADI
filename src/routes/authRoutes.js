@@ -22,6 +22,18 @@ router.get('/sadi-admin', authenticateJWT, (req, res) => {
     res.render('sadi-admin');
 });
 
+router.get('/planificaciones_admin', authenticateJWT, (req, res) => {
+    if(!req.user){
+        return res.redirect('/login');    
+    }
+    res.render('planificadorAdmin');
+});
+
+router.get('/planes', (req, res) => {
+    res.render('planes', { error: null });
+});
+
+
 // Logout
 router.get('/logout', authController.logout); // Nueva ruta de logout
 

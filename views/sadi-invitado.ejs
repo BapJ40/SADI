@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CU</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=passkey" />
+    <title>SADI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+    <link rel="icon" href="/images/carnet.png" type="image/png">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <!-- Header -->
@@ -15,7 +16,11 @@
         <h1 class="titulo-header">SADI</h1>
 
         <div class="opciones">
-                <!-- <h1 class="titulo-fiiltro">Filtro</h1> -->
+            <span id="carnet" class="material-symbols-outlined">
+                <a class="login" href="/planes">
+                    event
+                </a>
+            </span>
             <select title="filtro" name="filtro" id="filtro">
                 <option value="todos" selected>Todos</option>
                 <option value="activos">Activos</option>

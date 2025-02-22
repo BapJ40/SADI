@@ -55,6 +55,7 @@ header{
     flex-direction:row;
     align-items: center;
     margin-right:  10px;
+    padding: 5px;
     
 }
 
@@ -75,6 +76,16 @@ header{
     color:  white;
 }
 
+#carnet{
+    font-size: 40px;
+    margin: 0 20px;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--AzulRey);
+    padding: 5px;
+    border-radius: 15px;
+}
+
 #login{
     font-size: 40px;
     margin: 0 20px;
@@ -83,6 +94,7 @@ header{
     background-color: var(--AzulRey);
     padding: 5px;
     border-radius: 15px;
+    padding: 5px;
 }
 
 .login{
@@ -179,62 +191,6 @@ header{
     color: white;
 }
 
-/* MEDIA */
-
-@media (max-width: 645px){
-    .opciones{
-        margin-left: 50px;
-    }
-}
-
-/* Estilos para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-    .titulo-header{
-        font-size:  1.5rem;
-    }
-
-    .marca{
-        font-size: 1.5rem;
-    }
-
-    .opciones{
-        margin-right:  5px;
-        margin-left: 10px;
-    }
-
-    .titulo-fiiltro{
-        font-size: 1rem;
-    }
-
-    #filtro{
-        font-size:  15px;
-    }
-
-    #login{
-        font-size: 20px;
-        margin: 0 10px;
-    }
-
-    #logout{
-        font-size: 20px;
-        margin: 0 10px;
-    }
-
-    .carnets {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas más pequeñas */
-        gap: 8px; /* Menor espacio entre elementos */
-    }
-
-    .carnet{
-        width:  150px;
-    }
-
-    .info{
-        font-size:  1rem;
-    }
-}
-
-
 /* SISTEMA LOGIN Y REGISTER */
 
 .sistemaLoginRegister{
@@ -255,15 +211,21 @@ header{
     text-align: center;
 }
 
-h1 {
-  color: white;
+.h1Login{
+    color: white;
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-  color: white;
-  text-align: left;
+.labelLogin{
+    display: block;
+    margin-bottom: 8px;
+    color: white;
+    text-align: left;
+}
+
+#descripcionCrear,
+#descripcionEditar {
+  resize: none;
+   height: 125px; /* Ancho fijo de 400 píxeles */
 }
 
 input[type="text"],
@@ -320,6 +282,283 @@ button[type="submit"]:hover {
 
 .volver-link a:hover {
   text-decoration: underline;
+}
+
+.titulosPlanes{
+    font-family: var(--txtTitulo);
+    font-size: 2rem;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.subTitulosPlanes{
+    font-family: var(--txtSubTitulos);
+    font-size: 1.5rem;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.tituloPlanes{
+    font-family: var(--txtTitulo);
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.descripcionPlanes{
+    font-family: var(--txtSubTitulos);
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.imagenPlanes {
+    display: block;
+    margin: 0 auto;
+    max-width: 95%; /* La imagen no será más ancha que su contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Cubre todo el contenedor */
+}
+
+.titulo-header-planes{
+    font-family: var(--txtTitulo);
+    font-size: 2rem;
+}
+
+
+
+
+/* MEDIA */
+
+@media (max-width: 645px){
+    .opciones{
+        margin-left: 50px;
+    }
+
+    .titulo-header-planes{
+        font-family: var(--txtTitulo);
+        font-size:  1.5rem;
+    }
+
+    .marca{
+        font-size: 1.5rem;
+    }
+
+    .opciones{
+        margin-right:  5px;
+        margin-left: 10px;
+    }
+
+    #login{
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+    #logout{
+        font-size: 40px;
+        margin: 0 10px;
+    }
+
+    #carnet{
+        font-size: 40px;
+        margin: 0 20px;
+        user-select: none;
+        cursor: pointer;
+        background-color: var(--AzulRey);
+        padding: 5px;
+        border-radius: 15px;
+    }
+}
+
+/* Estilos para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    .titulo-header{
+        font-size:  1.5rem;
+    }
+
+    .marca{
+        font-size: 1rem;
+    }
+
+    .opciones{
+        margin-right:  5px;
+        margin-left: 10px;
+    }
+
+    .titulo-fiiltro{
+        font-size: 1rem;
+    }
+
+    #filtro{
+        font-size:  15px;
+    }
+
+    #login{
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+    #logout{
+        font-size: 20px;
+        margin: 0 10px;
+    }
+
+    .carnets {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Columnas más pequeñas */
+        gap: 8px; /* Menor espacio entre elementos */
+    }
+
+    .carnet{
+        width:  150px;
+    }
+
+    .info{
+        font-size:  1rem;
+    }
+
+    .titulo-header-planes{
+        font-family: var(--txtTitulo);
+        font-size:  1rem;
+    }
+
+    .imagenPlanes {
+        max-width: 95%; /* Asegura que la imagen no sea más ancha que el contenedor en pantallas pequeñas */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+
+    #carnet{
+        font-size: 30px;
+        margin: 0 20px;
+        user-select: none;
+        cursor: pointer;
+        background-color: var(--AzulRey);
+        padding: 5px;
+        border-radius: 15px;
+    }
+
+    #logout{
+        font-size: 30px;
+        margin: 0 20px;
+        user-select: none;
+        cursor: pointer;
+        background-color: red;
+        padding: 5px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .imagenPlanes {
+        max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor en pantallas pequeñas */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+
+    .titulo-header-planes{
+        font-family: var(--txtTitulo);
+        font-size:  15px;
+    }
+
+    .marca{
+        font-size: 15px;
+    }
+
+    .opciones{
+        margin-right:  5px;
+        margin-left: 10px;
+
+    }
+
+    #login{
+        font-size: 20px;
+        margin: 0 20px;
+        user-select: none;
+        cursor: pointer;
+        background-color: var(--AzulRey);
+        padding: 5px;
+        border-radius: 15px;
+    }
+    
+    .login{
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+    }
+
+    #carnet{
+        font-size: 20px;
+        margin: 0 20px;
+        user-select: none;
+        cursor: pointer;
+        background-color: var(--AzulRey);
+        padding: 5px;
+        border-radius: 15px;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .titulosPlanes{
+        font-size: 1rem;
+    }
+
+    .subTitulosPlanes{
+        font-size: 1rem;
+    }
+
+    .tituloPlanes{
+        font-size: 1.5rem;
+    }
+
+    .descripcionPlanes{
+        font-size: 1rem;
+    }
+
+    .titulo-header{
+        font-size:  1rem;
+    }
+
+    .marca{
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 320px) {
+    .titulo-header-planes{
+        font-family: var(--txtTitulo);
+        font-size:  10px;
+    }
+
+    .titulo-header{
+        font-size:  1rem;
+    }
+
+    .marca{
+        font-size: 10px;
+    }
+
+    .opciones{
+        margin-right:  5px;
+        margin-left: 10px;
+    }
+
+    #filtro{
+        font-size:  10px;
+    }
+
+    #logout{
+        font-size: 20px;
+        margin: 0 10px;
+    }
 }
 
 .novisible{
