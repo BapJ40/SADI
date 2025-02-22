@@ -4,42 +4,42 @@
  */
 
 // Función para verificar y eliminar planificaciones expiradas
-async function verificarExpiracion() {
-    try {
-        const response = await fetch('/planificaciones-info');
-        if (!response.ok) {
-            throw new Error(`No se pudo obtener la lista de planificaciones: ${response.status}`);
-        }
-        const planificaciones = await response.json();
+// async function verificarExpiracion() {
+//     try {
+//         const response = await fetch('/planificaciones-info');
+//         if (!response.ok) {
+//             throw new Error(`No se pudo obtener la lista de planificaciones: ${response.status}`);
+//         }
+//         const planificaciones = await response.json();
 
-        const ahora = new Date();
+//         const ahora = new Date();
 
-        planificaciones.forEach(async (planificacion) => {
-            const fechaExpiracion = new Date(planificacion.fecha_expiracion);
-            fechaExpiracion.setDate(fechaExpiracion.getDate()); // Ajuste de zona horaria
-            console.log('Fecha de expiración recibida:', fechaExpiracion);
-            if (fechaExpiracion < ahora) {
-                try {
-                    const response = await fetch(`/planificaciones-info/${planificacion.id}`, {
-                        method: 'DELETE'
-                    });
-                    if (!response.ok) {
-                        throw new Error(`Error al eliminar la planificación: ${response.status}`);
-                    }
-                    console.log(`Planificación ${planificacion.id} eliminada por expiración`);
-                } catch (error) {
-                    console.error('Error al eliminar la planificación:', error);
-                }
-            }
-        });
-    } catch (error) {
-        console.error('Error al verificar expiración de planificaciones:', error);
-    }
-}
+//         planificaciones.forEach(async (planificacion) => {
+//             const fechaExpiracion = new Date(planificacion.fecha_expiracion);
+//             fechaExpiracion.setDate(fechaExpiracion.getDate()); // Ajuste de zona horaria
+//             console.log('Fecha de expiración recibida:', fechaExpiracion);
+//             if (fechaExpiracion < ahora) {
+//                 try {
+//                     const response = await fetch(`/planificaciones-info/${planificacion.id}`, {
+//                         method: 'DELETE'
+//                     });
+//                     if (!response.ok) {
+//                         throw new Error(`Error al eliminar la planificación: ${response.status}`);
+//                     }
+//                     console.log(`Planificación ${planificacion.id} eliminada por expiración`);
+//                 } catch (error) {
+//                     console.error('Error al eliminar la planificación:', error);
+//                 }
+//             }
+//         });
+//     } catch (error) {
+//         console.error('Error al verificar expiración de planificaciones:', error);
+//     }
+// }
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Verificar y eliminar planificaciones expiradas al cargar la página
-    await verificarExpiracion();
+    // await verificarExpiracion();
 
     // Cargar planificaciones iniciales al cargar la página
     const divPlanificaciones = document.querySelector('.planificacionesContainer');
