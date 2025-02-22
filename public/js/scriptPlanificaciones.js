@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return response.json(); // o response.text() si tu backend no devuelve JSON en éxito
         })
         .then(data => {
-            console.log('Planificación actualizada exitosamente:', data);
+            // console.log('Planificación actualizada exitosamente:', data);
             alert('Planificación actualizada correctamente!');
 
             // Recargar las planificaciones para mostrar los cambios en la página
@@ -207,7 +207,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             return response.json(); // o response.text() si tu backend no devuelve JSON en éxito
         })
         .then(data => {
-            console.log('Nueva planificación creada exitosamente:', data);
+            // console.log('Nueva planificación creada exitosamente:', data);
             alert('El plan se ha enviado correctamente');
             formCrearPlanificacion.reset(); // Limpiar el formulario después del éxito
 
