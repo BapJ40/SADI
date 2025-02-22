@@ -30,7 +30,6 @@ exports.createPlanificador = async (req, res) => {
     if (req.file) {
         planificador.imagen_url = `/uploads/${req.file.filename}`; // Guarda la URL relativa del archivo en el objeto planificador
     }
-
     try {
         const id = await Planificador.create(planificador);
         res.json({ id, mensaje: 'Planificador creado' });
@@ -38,7 +37,7 @@ exports.createPlanificador = async (req, res) => {
         console.error('Error al crear planificador:', err.message);
         res.status(500).send('Error al crear planificador' + err.message);
     }
-};  
+};
 
 exports.updatePlanificador = async (req, res) => {
     const { id } = req.params;

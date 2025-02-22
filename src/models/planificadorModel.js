@@ -15,8 +15,8 @@ const Planificador = {
 
     // Crear un nuevo planificador
     create: async (planificador) => {
-        const { insertId } = await db.query('INSERT INTO planificaciones SET ?', [planificador]);
-        return insertId;
+        const [result] = await db.query('INSERT INTO planificaciones SET ?', planificador);
+        return result.insertId;
     },
 
     // Actualizar un planificador

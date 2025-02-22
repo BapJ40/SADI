@@ -49,42 +49,43 @@ document.getElementById('imagenEditar').addEventListener('change', (event) => {
 });
 
 // Función para verificar y eliminar planificaciones expiradas
-async function verificarExpiracion() {
-    try {
-        const response = await fetch('/planificaciones-info');
-        if (!response.ok) {
-            throw new Error(`No se pudo obtener la lista de planificaciones: ${response.status}`);
-        }
-        const planificaciones = await response.json();
+// async function verificarExpiracion() {
+//     try {
+//         const response = await fetch('/planificaciones-info');
+//         if (!response.ok) {
+//             throw new Error(`No se pudo obtener la lista de planificaciones: ${response.status}`);
+//         }
+//         const planificaciones = await response.json();
 
-        const ahora = new Date();
+//         const ahora = new Date();
 
-        planificaciones.forEach(async (planificacion) => {
-            const fechaExpiracion = new Date(planificacion.fecha_expiracion);
-            fechaExpiracion.setDate(fechaExpiracion.getDate()); // Ajuste de zona horaria
-            console.log('Fecha de expiración recibida:', fechaExpiracion);
-            if (fechaExpiracion < ahora) {
-                try {
-                    const response = await fetch(`/planificaciones-info/${planificacion.id}`, {
-                        method: 'DELETE'
-                    });
-                    if (!response.ok) {
-                        throw new Error(`Error al eliminar la planificación: ${response.status}`);
-                    }
-                    console.log(`Planificación ${planificacion.id} eliminada por expiración`);
-                } catch (error) {
-                    console.error('Error al eliminar la planificación:', error);
-                }
-            }
-        });
-    } catch (error) {
-        console.error('Error al verificar expiración de planificaciones:', error);
-    }
-}
+//         planificaciones.forEach(async (planificacion) => {
+//             const fechaExpiracion = new Date(planificacion.fecha_expiracion);
+//             console.log('Fecha de expiración recibida (antes de ajuste):', fechaExpiracion);
+//             fechaExpiracion.setDate(fechaExpiracion.getDate()); // Ajuste de zona horaria
+//             console.log('Fecha de expiración recibida (después de ajuste):', fechaExpiracion);
+//             if (fechaExpiracion < ahora) {
+//                 try {
+//                     const response = await fetch(`/planificaciones-info/${planificacion.id}`, {
+//                         method: 'DELETE'
+//                     });
+//                     if (!response.ok) {
+//                         throw new Error(`Error al eliminar la planificación: ${response.status}`);
+//                     }
+//                     console.log(`Planificación ${planificacion.id} eliminada por expiración`);
+//                 } catch (error) {
+//                     console.error('Error al eliminar la planificación:', error);
+//                 }
+//             }
+//         });
+//     } catch (error) {
+//         console.error('Error al verificar expiración de planificaciones:', error);
+//     }
+// }
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Verificar y eliminar planificaciones expiradas al cargar la página
-    await verificarExpiracion();
+    // await verificarExpiracion();
 
     // Cargar planificaciones iniciales al cargar la página
     const divPlanificaciones = document.querySelector('.planificacionesContainer');
@@ -186,10 +187,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         event.preventDefault(); // Evita la recarga de página
         const formData = new FormData(formCrearPlanificacion);
 
-        const fecha_expiracion = new Date();
-        fecha_expiracion.setDate(fecha_expiracion.getDate() + 90); // 90 días después de la fecha actual
-        formData.append('fecha_expiracion', fecha_expiracion.toISOString()); // Agregar la fecha de expiración al FormData
-        console.log(`Fecha de expiración enviada: ${fecha_expiracion}`);
+        // const fecha_expiracion = new Date();
+        // console.log(`Fecha expiracion envidada desde el frontend: ${fecha_expiracion}`);
+        // fecha_expiracion.setDate(fecha_expiracion.getDate() + 90); // 90 días después de la fecha actual
+        // console.log(`Fecha de expiración calculada: ${fecha_expiracion}`); // AÑADE ESTE LOG
+        // const fecha_expiracion_ISO = fecha_expiracion.toISOString();
+        // console.log(`Fecha de expiración en formato ISO (antes de enviar): ${fecha_expiracion_ISO}`); // AÑADE ESTE LOG
+        // formData.append('fecha_expiracion', fecha_expiracion_ISO); // Agregar la fecha de expiración al FormData
+        // console.log(`Fecha de expiración enviada ya formateada: ${fecha_expiracion_ISO}`);
 
         fetch('/planificaciones-info', { // **URL PARA EL POST (CREACIÓN)**
             method: 'POST',
