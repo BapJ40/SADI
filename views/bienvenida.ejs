@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colectivos HO CHI MINH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="icon" href="/images/carnet.png" type="image/png">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="marca">CARNET UNIVERSO</h1>
+        <h1 class="titulo-header">Colectivos HO CHI MINH</h1>
+
+        <div class="opciones">
+          <span id="carnet" class="carnetOp material-symbols-outlined">
+            <a class="login" href="/carnets">
+                badge
+            </a>
+          </span>
+          <span id="planes" class="planes material-symbols-outlined">
+            <a class="login" href="/planes">
+                event
+            </a>
+          </span>
+          <span id="login" class="material-symbols-outlined">
+            <a class="login" href="/login">
+            passkey
+            </a>
+          </span>
+        </div>
+        
+    </header>
+
+    <!-- Main -->
+    <main>
+        <div class="infoBienvenida">
+            <h1 class="tituloPlanes">Bienvenido a Colectivos HO CHI MINH</h1>
+            <p class="descripcionPlanes">Aquí encontrarás la información de nuestro Comandante</p>
+            <div class="infoComandante">
+              <a href="/images/Presidente.jpg" target="_blank">
+              <img class="imgComandante" src="/images/Presidente.jpg" alt="Foto del carnet del Comandante">
+              </a>
+              <div class="datosComandante">
+                <h2 class="tituloInfoEmpleado">
+                  Informacion y datos del Comandante</h2>
+                <p>
+                  Nombre: <span id="nombre">Larry Rodriguez</span> 
+                </p>
+                <p>
+                  Cargo: <span id="cargo">Comandante</span>
+                </p>
+                <p>
+                  Cedula de identidad: <span id="cedula">V-13.466.429</span>
+                </p>
+                <!-- <p>
+                  Numero de telefono: <span id="telefono">0414-1234567</span>
+                </p>
+                <p>
+                  Correo electronico: <span id="correo">colectivosPrueba@gmail.com</span>
+                </p> -->
+              </div>
+            </div>
+        </div>
+    </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="/js/scriptBienvenida.js"></script>
+</body>
+</html>

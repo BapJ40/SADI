@@ -8,6 +8,8 @@ const multer = require('multer');
 const carnetRoutes = require('./routes/carnetRoutes'); // Importa las rutas de carnets
 const trabajadoresRoutes = require('./routes/trabajadorRoutes');
 const planificadorRoutes = require('./routes/planificadorRoutes');
+const estadosVistasApi = require('./middlewares/estadosVistasApi');
+const vistasRoutes = require('./routes/vistasRoutes');
 
 dotenv.config();
 
@@ -29,14 +31,17 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.render('sadi-invitado');
+    res.render('bienvenida');
 });
 
 // Rutas
+// Usar la API de estados de vistas
+app.use('/api', estadosVistasApi);
 app.use(authRoutes);
-app.use('/carnets-info', carnetRoutes);
-app.use('/trabajadores', trabajadoresRoutes);
-app.use('/planificaciones-info', planificadorRoutes);
+app.use('/carnets', carnetRoutes);
+app.use('/trabajador', trabajadoresRoutes);
+app.use('/planes', planificadorRoutes);
+app.use('/vistas', vistasRoutes);
 
 // Servidor
 const PORT = process.env.PORT || 3003;

@@ -2,6 +2,7 @@ const express = require('express');
 const authController = require('../controllers/authController');
 const router = express.Router();
 const { authenticateJWT } = require('../middlewares/authMiddleware'); // Middleware de autenticación
+const { consultarEstadosVistas } = require('../middlewares/consultarEstadosVisitas');
 
 
 router.get('/login', (req, res) => {
@@ -28,11 +29,6 @@ router.get('/planificaciones_admin', authenticateJWT, (req, res) => {
     }
     res.render('planificadorAdmin');
 });
-
-router.get('/planes', (req, res) => {
-    res.render('planes', { error: null });
-});
-
 
 // Logout
 router.get('/logout', authController.logout); // Nueva ruta de logout

@@ -37,6 +37,40 @@
 //     }
 // }
 
+async function obtenerEstadosVistas() {
+    try {
+        // Hacer la solicitud a la API
+        const response = await fetch('/api/estados-vistas');
+        const data = await response.json();
+
+        // Verificar si la solicitud fue exitosa
+        if (data.success) {
+            const estados = data.data;
+
+            // Obtener referencias a las opciones del menú
+            const carnet = document.querySelector('.carnetOp');
+
+            // Obtener el estado de cada vista
+            const estadoCarnets = estados.find(vista => vista.nombre_vista === 'sadi_invitado')?.estado || 'inactiva';
+
+            // Habilitar o deshabilitar "Carnets" según el estado
+            if (estadoCarnets === 'inactiva') {
+                carnet.classList.add('disabled-option'); // Deshabilita "Carnets"
+            } else {
+                carnet.classList.remove('disabled-option'); // Habilita "Carnets"
+            }
+
+        } else {
+            console.error('Error al obtener los estados de las vistas:', data.message);
+        }
+    } catch (error) {
+        console.error('Error al hacer la solicitud:', error);
+    }
+}
+
+// Llamar a la función cuando la página cargue
+window.onload = obtenerEstadosVistas;
+
 document.addEventListener('DOMContentLoaded', async () => {
     // Verificar y eliminar planificaciones expiradas al cargar la página
     // await verificarExpiracion();
@@ -45,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const divPlanificaciones = document.querySelector('.planificacionesContainer');
 
     try {
-        const response = await fetch('/planificaciones-info');
+        const response = await fetch('/planes/planificaciones-info');
         if (!response.ok) {
             throw new Error(`No se pudo obtener la lista de planificaciones: ${response.status}`);
         }

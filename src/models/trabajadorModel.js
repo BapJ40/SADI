@@ -1,26 +1,31 @@
-const db = require('../../config/db'); // Usamos el pool de conexión existente
+const db = require('../../config/db');
 
 const Trabajador = {
-    // Obtener todos los trabajadores con información del carnet
-    getAll: async () => {
-        const [rows] = await db.query(`
-            SELECT t.*, c.img AS carnet_img, c.estado AS carnet_estado
-            FROM trabajadores t
-            LEFT JOIN carnet c ON t.numero_carnet = c.id
-        `);
-        return rows;
-    },
-
-    // Obtener un trabajador por ID con información del carnet
-    getById: async (id) => {
-        const [rows] = await db.query(`
-            SELECT t.*, c.img AS carnet_img, c.estado AS carnet_estado
-            FROM trabajadores t
-            LEFT JOIN carnet c ON t.numero_carnet = c.id
-            WHERE t.id = ?
-        `, [id]);
-        return rows[0];
+  getByIdWithCarnet: async (id) => {
+    try {
+      const [rows] = await db.query(`
+        SELECT 
+          t.id,
+          t.nombre,
+          t.cargo,
+          t.cedula,
+          t.id_carnet,
+          c.estado AS carnet_estado,
+          c.img AS carnet_imagen  -- Asumiendo que el campo se llama imagen_url
+        FROM 
+          trabajadores t
+        LEFT JOIN 
+          carnet c ON t.id_carnet = c.id
+        WHERE 
+          t.id = ?
+      `, [id]);
+      
+      return rows[0] || null;
+    } catch (error) {
+      console.error('Error en modelo Trabajador:', error);
+      throw error;
     }
+  }
 };
 
 module.exports = Trabajador;

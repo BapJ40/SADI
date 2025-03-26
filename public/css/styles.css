@@ -3,19 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Martian+Mono:wght@100..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 *{
     /* Cositas basicas */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* Mi Colores */
-    --AzulRey: #0454A2;
-    --AzulReyOscuro: #074A85;
-    --AzulCelesteClaro: #DDE9F3;
-    --AzulCelestico: #4D82BE;
-    --Amarillo: #FDD567;
-    --AmarilloClaro: #FCDD5A;
+    --Dorado: #E5B80B ; /* Cambiado a un dorado más brillante */
+    --DoradoOscuro: rgb(255,215,0) ; /* Cambiado a un dorado oscuro más agradable */
+    --Negro: #1A1A1A;
+    --Blanco: #FAFAFA;
     /* Mi Tipografía */
     --txtTitulo: "Chivo";
     --txtSubTitulos: "Kanit";
@@ -26,7 +23,7 @@
 }
 
 body{
-    background-color: var(--AzulRey);
+    background-color: var(--Negro);
 }
 
 header{
@@ -34,8 +31,8 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--AzulCelestico);
-    color: white;
+    background-color: var(--DoradoOscuro);
+    color: var(--Negro);
     width: 100%;
 }
 
@@ -43,11 +40,13 @@ header{
     font-family: var(--txtTitulo);
     font-size: 2rem;
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .titulo-header{
     font-family: var(--txtTitulo);
     font-size:  3rem;
+    font-weight: bold;
 }
 
 .opciones{
@@ -72,26 +71,46 @@ header{
     border-radius:  10px;
     text-align: center;
     border: none;
-    background-color: var(--AzulRey);
-    color:  white;
+    background-color: var(--Negro);
+    color:  var(--Blanco);
 }
 
 #carnet{
     font-size: 40px;
-    margin: 0 20px;
+    margin: 0 10px;
     user-select: none;
     cursor: pointer;
-    background-color: var(--AzulRey);
+    background-color: var(--Negro);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#planes{
+    font-size: 40px;
+    margin: 0 10px;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--Negro);
+    padding: 5px;
+    border-radius: 15px;
+}
+
+#vistas{
+    font-size: 40px;
+    margin: 0 10px;
+    user-select: none;
+    cursor: pointer;
+    background-color: var(--Negro);
     padding: 5px;
     border-radius: 15px;
 }
 
 #login{
     font-size: 40px;
-    margin: 0 20px;
+    margin: 0 10px;
     user-select: none;
     cursor: pointer;
-    background-color: var(--AzulRey);
+    background-color: var(--Negro);
     padding: 5px;
     border-radius: 15px;
     padding: 5px;
@@ -99,7 +118,7 @@ header{
 
 .login{
     text-decoration: none;
-    color: white;
+    color: var(--Blanco);
 }
 
 #logout{
@@ -114,7 +133,7 @@ header{
 
 .logout{
     text-decoration: none;
-    color: white;
+    color: var(--Blanco);
 }
 
 .botones{
@@ -139,10 +158,10 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--AzulRey);
+    background-color: var(--Negro);
     width:  300px;
     border-radius:  10px;
-    color:  white;
+    color:  var(--Negro);
 }
 
 .carnet-img{
@@ -156,13 +175,17 @@ header{
     width:  100%;
 }
 
+.carnet-info{
+    color: var(--Negro);
+}
+
 .info{
     font-family: var(--txtNumerosParraffos);
     font-size:  1.5rem;
     padding:  5px 20px;
     text-align: center;
     font-weight: bold;
-    background-color: var(--AzulCelestico) ;    
+    background-color: var(--DoradoOscuro);    
     border-radius: 25px;
 }
 
@@ -180,15 +203,15 @@ header{
     border-radius:  10px;
     text-align: center;
     border: none;
-    background-color: var(--AzulCelestico);
-    color:  white;
+    background-color: var(--DoradoOscuro);
+    color:  var(--Negro);
 }
 
 .fancybox__caption{
     font-family: var(--txtSubTitulos);
     font-size:  20px;
     text-align: center;
-    color: white;
+    color: var(--Blanco);
 }
 
 /* SISTEMA LOGIN Y REGISTER */
@@ -212,13 +235,13 @@ header{
 }
 
 .h1Login{
-    color: white;
+    color: var(--Blanco);
 }
 
 .labelLogin{
     display: block;
     margin-bottom: 8px;
-    color: white;
+    color: var(--Blanco);
     text-align: left;
 }
 
@@ -256,11 +279,11 @@ button[type="submit"]:hover {
 
 .links {
   margin-top: 15px;
-  color: white;
+  color: var(--Blanco);
 }
 
 .links a {
-  color: white;
+  color: var(--Blanco);
   text-decoration: none;
   margin: 0 10px;
 }
@@ -271,12 +294,12 @@ button[type="submit"]:hover {
 
 .volver-link {
   margin-top: 20px;
-  color: white;
+  color: var(--Blanco);
   display: block;
 }
 
 .volver-link a {
-  color: white;
+  color: var(--Blanco);
   text-decoration: none;
 }
 
@@ -289,7 +312,7 @@ button[type="submit"]:hover {
     font-size: 2rem;
     padding: 10px;
     font-weight: bold;
-    color: white;
+    color: var(--Blanco);
     display: flex;
     justify-content: center;
 }
@@ -299,7 +322,7 @@ button[type="submit"]:hover {
     font-size: 1.5rem;
     padding: 10px;
     font-weight: bold;
-    color: white;
+    color: var(--Blanco);
     display: flex;
     justify-content: center;
 }
@@ -308,7 +331,7 @@ button[type="submit"]:hover {
     font-family: var(--txtTitulo);
     font-size: 3rem;
     font-weight: bold;
-    color: white;
+    color: var(--Blanco);
     display: flex;
     justify-content: center;
 }
@@ -317,7 +340,7 @@ button[type="submit"]:hover {
     font-family: var(--txtSubTitulos);
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: var(--Blanco);
     display: flex;
     justify-content: center;
 }
@@ -333,10 +356,48 @@ button[type="submit"]:hover {
 .titulo-header-planes{
     font-family: var(--txtTitulo);
     font-size: 2rem;
+    font-weight: bold;
 }
 
+.infoBienvenida {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}	
 
+.infoComandante {
+    display: flex;
+    align-items: center; /* Centra verticalmente la imagen y el texto */
+    justify-content: center;
+    gap: 20px; /* Espacio entre la imagen y el texto */
+    margin: 20px 0; /* Espacio alrededor del contenedor */
+}
 
+.imgComandante {
+    width: 350px; /* Ajusta el tamaño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Opcional: para bordes redondeados */
+    border: 5px solid var(--DoradoOscuro); /* Opcional: borde dorado */
+}
+
+.datosComandante {
+    flex: 1; /* Permite que el texto ocupe el espacio restante */
+    color: white;
+}
+
+.datosComandante h2 {
+    margin-top: 0; /* Elimina el margen superior del título */
+    font-size: 2.5rem;
+    font-family: var(--txtTitulo);
+    font-weight: bold;
+    padding: 10px 0px 15px 0px; 
+}
+
+.datosComandante p {
+    margin: 5px 0; /* Espaciado entre los párrafos */
+    font-size: 2rem;
+    font-family: var(--txtTitulo);
+}
 
 /* MEDIA */
 
@@ -370,20 +431,29 @@ button[type="submit"]:hover {
     }
 
     #carnet{
-        font-size: 40px;
-        margin: 0 20px;
+        font-size: 20px;
+        margin: 0 10px;
         user-select: none;
         cursor: pointer;
-        background-color: var(--AzulRey);
-        padding: 5px;
-        border-radius: 15px;
     }
+
+    #planes{
+        font-size: 20px;
+        margin: 0 10px;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .titulo-header{
+        font-size:  1.5rem;
+    }
+
 }
 
 /* Estilos para pantallas pequeñas (móviles) */
 @media (max-width: 600px) {
     .titulo-header{
-        font-size:  1.5rem;
+        font-size:  1rem;
     }
 
     .marca{
@@ -436,16 +506,6 @@ button[type="submit"]:hover {
         height: auto; /* Mantiene la proporción de la imagen */
     }
 
-    #carnet{
-        font-size: 30px;
-        margin: 0 20px;
-        user-select: none;
-        cursor: pointer;
-        background-color: var(--AzulRey);
-        padding: 5px;
-        border-radius: 15px;
-    }
-
     #logout{
         font-size: 30px;
         margin: 0 20px;
@@ -454,6 +514,20 @@ button[type="submit"]:hover {
         background-color: red;
         padding: 5px;
         border-radius: 15px;
+    }
+
+    #carnet{
+        font-size: 20px;
+        margin: 0 10px;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    #planes{
+        font-size: 20px;
+        margin: 0 10px;
+        user-select: none;
+        cursor: pointer;
     }
 }
 
@@ -477,34 +551,27 @@ button[type="submit"]:hover {
         margin-left: 10px;
 
     }
-
-    #login{
-        font-size: 20px;
-        margin: 0 20px;
-        user-select: none;
-        cursor: pointer;
-        background-color: var(--AzulRey);
-        padding: 5px;
-        border-radius: 15px;
-    }
     
     .login{
         text-decoration: none;
-        color: white;
+        color: var(--Blanco);
         font-size: 20px;
     }
 
     #carnet{
         font-size: 20px;
-        margin: 0 20px;
+        margin: 0 10px;
         user-select: none;
         cursor: pointer;
-        background-color: var(--AzulRey);
-        padding: 5px;
-        border-radius: 15px;
+    }
+
+    #planes{
+        font-size: 20px;
+        margin: 0 10px;
+        user-select: none;
+        cursor: pointer;
     }
 }
-
 
 @media (max-width: 400px) {
     .titulosPlanes{
@@ -530,6 +597,12 @@ button[type="submit"]:hover {
     .marca{
         font-size: 10px;
     }
+
+    .opciones{
+        margin: 0;
+        padding: 0;
+    }
+
 }
 
 @media (max-width: 320px) {
@@ -539,11 +612,11 @@ button[type="submit"]:hover {
     }
 
     .titulo-header{
-        font-size:  1rem;
+        font-size:  0.5rem;
     }
 
     .marca{
-        font-size: 10px;
+        font-size: 8px;
     }
 
     .opciones{
@@ -559,8 +632,77 @@ button[type="submit"]:hover {
         font-size: 20px;
         margin: 0 10px;
     }
+
+    .opciones{
+        margin: 0;
+        padding: 0;
+    }
 }
+
+/* Media Queries para responsive */
+@media (max-width: 768px) {
+    .infoComandante {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+    
+    .imgComandante {
+      width: 200px;
+      height: 250px;
+    }
+    
+    .datosComandante {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .infoBienvenida {
+      padding: 10px;
+    }
+    
+    .infoComandante {
+      padding: 15px;
+    }
+    
+    .imgComandante {
+      width: 180px;
+      height: 220px;
+    }
+    
+    .tituloInfoEmpleado {
+      font-size: 1.3rem;
+    }
+    
+    .datosComandante p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .imgComandante {
+      width: 150px;
+      height: 190px;
+    }
+    
+    .tituloInfoEmpleado {
+      font-size: 1.2rem;
+    }
+    
+    .datosComandante p {
+      font-size: 0.9rem;
+    }
+  }
 
 .novisible{
     display: none;
+}
+
+/* Estilo para opciones inhabilitadas */
+.disabled-option {
+    opacity: 0.5; /* Hace que el elemento sea traslúcido */
+    pointer-events: none; /* Deshabilita los clics */
+    cursor: not-allowed; /* Cambia el cursor a "no permitido" */
 }

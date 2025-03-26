@@ -32,6 +32,7 @@ filtro.addEventListener("change", () => {
 document.addEventListener('DOMContentLoaded', async () => {
     const carnetsDiv = document.querySelector('.carnets');
     const confirmarBtn = document.getElementById('confirmarEstados'); // Botón de confirmar
+    const vistasBtn = document.querySelector('.confirmarEstadoVista') // Botón de vistas
     let estadosOriginales = []; // Almacenará el estado original de los selects
 
     // Función para verificar si hay cambios
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         // Obtener datos iniciales desde el servidor
-        const response = await fetch('/carnets-info');
+        const response = await fetch('/carnets/carnets-info');
         const carnets = await response.json();
 
         // Generar HTML dinámico
@@ -103,7 +104,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         try {
             // Enviar todos los cambios al servidor
-            const response = await fetch('/carnets-info/actualizar-estados', {
+            const response = await fetch('/carnets/actualizar-estados', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ cambios }),
@@ -119,6 +120,60 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         } catch (err) {
             console.error('Error al enviar actualizaciones:', err.message);
+        }
+    });
+
+    // Evento al botón Vistas
+    const configModal = document.getElementById('configModal');
+    const estadoActualSpan = document.getElementById('estadoActual');
+    const estadoVistaSelect = document.getElementById('estadoVista');
+    const confirmarEstadoBtn = document.getElementById('confirmarEstado');
+
+    // Evento cuando el modal se abre
+    configModal.addEventListener('show.bs.modal', async () => {
+        const nombreVista = 'sadi_invitado'; // Nombre de la vista a consultar
+
+        try {
+            // Obtener el estado actual de la vista
+            const response = await fetch(`/vistas/estado-vista/${nombreVista}`);
+            const data = await response.json();
+
+            if (data.success) {
+                const estadoActual = data.estado;
+                estadoActualSpan.textContent = estadoActual; // Mostrar el estado actual
+                estadoVistaSelect.value = estadoActual; // Seleccionar el estado actual en el select
+            } else {
+                console.error('Error al obtener el estado de la vista:', data.message);
+            }
+        } catch (error) {
+            console.error('Error al hacer la solicitud:', error);
+        }
+    });
+
+    // Evento para confirmar el cambio de estado
+    confirmarEstadoBtn.addEventListener('click', async () => {
+        const nombreVista = 'sadi_invitado';
+        const estado = estadoVistaSelect.value;
+
+        try {
+            const response = await fetch('/vistas/actualizar-estado', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre_vista: nombreVista, estado }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert(data.message);
+                // Cerrar el modal
+                bootstrap.Modal.getInstance(configModal).hide();
+            } else {
+                alert(data.message || 'Error al actualizar la vista');
+            }
+        } catch (error) {
+            console.error('Error al hacer la solicitud:', error);
+            alert('Error al actualizar la vista');
         }
     });
 });

@@ -21,6 +21,9 @@
                     badge
                 </a>
             </span>
+            <span id="vistas" class="material-symbols-outlined login" data-bs-toggle="modal" data-bs-target="#configModal">
+                visibility
+            </span>
             <span id="logout" class="material-symbols-outlined">
                 <a class="logout" href="/logout">
                 logout
@@ -101,6 +104,28 @@
             </div>
         </div>
     </div>
+
+<div class="modal fade" id="configModal" tabindex="-1" aria-labelledby="configModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="configModalLabel">Configuración de la Vista</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Estado actual: <span id="estadoActual"></span></p>
+                <p>¿Quieres que la vista esté activa para el público?</p>
+                <select id="estadoVista" class="form-select">
+                    <option value="activa">Activa</option>
+                    <option value="inactiva">Inactiva</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="confirmarEstado" class="btn btn-primary">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <h2 class="subTitulosPlanes">Planificaciones Existentes:</h2>

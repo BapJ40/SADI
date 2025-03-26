@@ -3,7 +3,7 @@
  * @param {number} planificacionId - El ID de la planificación a editar.
  */
 function abrirModalEditarPlanificacion(planificacionId) {
-    fetch(`/planificaciones-info/${planificacionId}`) // Obtener datos para editar
+    fetch(`/planes/planificaciones-info/${planificacionId}`) // Obtener datos para editar
         .then(response => {
             if (!response.ok) {
                 throw new Error(`No se pudo obtener la planificación: ${response.status}`);
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const divPlanificaciones = document.querySelector('.planificacionesContainer');
 
     try {
-        const response = await fetch('/planificaciones-info');
+        const response = await fetch('/planes/planificaciones-info');
         if (!response.ok) {
             throw new Error(`No se pudo obtener la lista de planificaciones: ${response.status}`);
         }
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const formData = new FormData(formEditarPlanificacion);
         const idValue = document.getElementById('id').value; // Cambiado a 'id' y renombrado variable para claridad
-        const url = `/planificaciones-info/${idValue}`; // **URL PARA EL PUT (MISMA RUTA PERO CON PUT)**
+        const url = `/planes/planificaciones-info/${idValue}`; // **URL PARA EL PUT (MISMA RUTA PERO CON PUT)**
 
         fetch(url, {
             method: 'PUT', // **Método PUT**
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // formData.append('fecha_expiracion', fecha_expiracion_ISO); // Agregar la fecha de expiración al FormData
         // console.log(`Fecha de expiración enviada ya formateada: ${fecha_expiracion_ISO}`);
 
-        fetch('/planificaciones-info', { // **URL PARA EL POST (CREACIÓN)**
+        fetch('/planes/planificaciones-info', { // **URL PARA EL POST (CREACIÓN)**
             method: 'POST',
             body: formData
         })
@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function cargarPlanificaciones() {
         const divPlanificaciones = document.querySelector('.planificacionesContainer');
         try {
-            const response = await fetch('/planificaciones-info');
+            const response = await fetch('/planes/planificaciones-info');
             if (!response.ok) {
                 throw new Error(`No se pudieron recargar las planificaciones: ${response.status}`);
             }
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const confirmar = confirm('¿Estás seguro de que deseas eliminar esta planificación?');
             if (confirmar) {
                 try {
-                    const response = await fetch(`/planificaciones-info/${planificacionId}`, {
+                    const response = await fetch(`/planes/planificaciones-info/${planificacionId}`, {
                         method: 'DELETE'
                     });
                     if (!response.ok) {
@@ -294,4 +294,55 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    // Evento al botón Vistas
+    const configModal = document.getElementById('configModal');
+    const estadoActualSpan = document.getElementById('estadoActual');
+    const estadoVistaSelect = document.getElementById('estadoVista');
+    const confirmarEstadoBtn = document.getElementById('confirmarEstado');
+
+    // Evento cuando el modal se abre
+    configModal.addEventListener('show.bs.modal', async () => {
+        const nombreVista = 'planes'; // Nombre de la vista a consultar
+
+        try {
+            // Obtener el estado actual de la vista
+            const response = await fetch(`/vistas/estado-vista/${nombreVista}`);
+            const data = await response.json();
+
+            if (data.success) {
+                const estadoActual = data.estado;
+                estadoActualSpan.textContent = estadoActual; // Mostrar el estado actual
+                estadoVistaSelect.value = estadoActual; // Seleccionar el estado actual en el select
+            } else {
+                console.error('Error al obtener el estado de la vista:', data.message);
+            }
+        } catch (error) {
+            console.error('Error al hacer la solicitud:', error);
+        }
+    });
+
+    // Evento para confirmar el cambio de estado
+    confirmarEstadoBtn.addEventListener('click', async () => {
+        const nombreVista = 'planes';
+        const estado = estadoVistaSelect.value;
+
+        try {
+            const response = await fetch('/vistas/actualizar-estado', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre_vista: nombreVista, estado }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert(data.message);
+            } else {
+                alert(data.message || 'Error al actualizar la vista');
+            }
+        } catch (error) {
+            console.error('Error al hacer la solicitud:', error);
+            alert('Error al actualizar la vista');
+        }
+    });
 });
